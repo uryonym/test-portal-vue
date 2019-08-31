@@ -13,7 +13,7 @@
     "heroku-postbuild": "npm run build"
   },
   "dependencies": {
-    "nuxt": "2.8.1"
+    "nuxt": "^2.0.0"
   },
   "devDependencies": {
     "@nuxtjs/vuetify": "^1.0.0",
