@@ -13,6 +13,7 @@
     "heroku-postbuild": "npm run build"
   },
   "dependencies": {
+    "@nuxtjs/dotenv": "^1.4.0",
     "nuxt": "^2.0.0"
   },
   "devDependencies": {
