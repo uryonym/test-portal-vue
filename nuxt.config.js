@@ -32,7 +32,7 @@ export default {
   /*
    ** Plugins to load before mounting the App
    */
-  plugins: [],
+  plugins: ['~/plugins/firebase'],
   /*
    ** Nuxt.js dev-modules
    */
@@ -52,18 +52,7 @@ export default {
   vuetify: {
     customVariables: ['~/assets/variables.scss'],
     theme: {
-      dark: true,
-      themes: {
-        dark: {
-          primary: '#FF9800',
-          accent: '#FF9800',
-          secondary: '#424242',
-          info: '#2196f3',
-          warning: '#ffeb3b',
-          error: '#FF8A65',
-          success: '#4caf50'
-        }
-      }
+      dark: false
     }
   },
   /*
