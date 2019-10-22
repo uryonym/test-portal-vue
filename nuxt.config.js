@@ -45,6 +45,9 @@ export default {
    ** Nuxt.js modules
    */
   modules: [],
+  router: {
+    middleware: 'authenticated'
+  },
   /*
    ** vuetify module configuration
    ** https://github.com/nuxt-community/vuetify-module
