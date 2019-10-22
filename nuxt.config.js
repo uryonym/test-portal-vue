@@ -1,4 +1,6 @@
 import colors from 'vuetify/es5/util/colors'
+require('dotenv').config()
+const { API_KEY, AUTH_DOMAIN, DATABASE_URL, PROJECT_ID } = process.env
 
 export default {
   mode: 'universal',
@@ -30,7 +32,7 @@ export default {
   /*
    ** Plugins to load before mounting the App
    */
-  plugins: [],
+  plugins: ['~/plugins/firebase'],
   /*
    ** Nuxt.js dev-modules
    */
@@ -43,6 +45,9 @@ export default {
    ** Nuxt.js modules
    */
   modules: [],
+  router: {
+    middleware: 'authenticated'
+  },
   /*
    ** vuetify module configuration
    ** https://github.com/nuxt-community/vuetify-module
@@ -50,18 +55,7 @@ export default {
   vuetify: {
     customVariables: ['~/assets/variables.scss'],
     theme: {
-      dark: true,
-      themes: {
-        dark: {
-          primary: colors.blue.darken2,
-          accent: colors.grey.darken3,
-          secondary: colors.amber.darken3,
-          info: colors.teal.lighten1,
-          warning: colors.amber.base,
-          error: colors.deepOrange.accent4,
-          success: colors.green.accent3
-        }
-      }
+      dark: false
     }
   },
   /*
@@ -72,5 +66,11 @@ export default {
      ** You can extend webpack config here
      */
     extend(config, ctx) {}
+  },
+  env: {
+    API_KEY,
+    AUTH_DOMAIN,
+    DATABASE_URL,
+    PROJECT_ID
   }
 }
