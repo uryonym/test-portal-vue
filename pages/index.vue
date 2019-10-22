@@ -1,17 +1,11 @@
 <template>
-  <v-layout column justify-center align-center>
-    <v-flex xs12 sm8 md6>
-      <todo-input-form />
+  <v-layout row wrap>
+    <v-flex xs12>
+      <h2 class="display-1">テストページ</h2>
     </v-flex>
   </v-layout>
 </template>
 
-<script>
-import TodoInputForm from '~/components/TodoApp/TodoInputForm'
+<script></script>
 
-export default {
-  components: {
-    TodoInputForm
-  }
-}
-</script>
+<style></style>
