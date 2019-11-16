@@ -6,7 +6,7 @@ export const state = () => ({
 
 export const getters = {
   isAuthenticated(state) {
-    return !!state.user
+    return state.user ? state.user.email === 'uryonet@gmail.com' : false
   }
 }
 
