@@ -1,11 +1,22 @@
 <template>
   <v-layout row wrap>
-    <v-flex xs12>
-      <h2 class="display-1">テストページ</h2>
-    </v-flex>
+    <household-summary></household-summary>
+    <date-picker></date-picker>
+    <month-report></month-report>
   </v-layout>
 </template>
 
-<script></script>
+<script>
+import HouseholdSummary from '~/components/household/Summary'
+import DatePicker from '~/components/household/DatePicker'
+import MonthReport from '~/components/household/MonthReport'
+export default {
+  components: {
+    HouseholdSummary,
+    DatePicker,
+    MonthReport
+  }
+}
+</script>
 
 <style></style>
