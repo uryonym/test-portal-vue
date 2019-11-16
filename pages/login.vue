@@ -4,9 +4,9 @@
       ログインしてください
     </v-flex>
     <v-flex xs12>
-      <v-btn color="primary" outlined @click.stop="handleSignin"
-        >GoogleLogin</v-btn
-      >
+      <v-btn @click.stop="handleSignin" outlined color="primary">
+        GoogleLogin
+      </v-btn>
     </v-flex>
   </v-layout>
 </template>
