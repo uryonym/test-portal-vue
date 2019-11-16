@@ -1,5 +1,5 @@
 <template>
-  <v-flex>
+  <v-flex xs12>
     <v-card outlined>
       <v-list flat>
         <v-list-item>収入</v-list-item>

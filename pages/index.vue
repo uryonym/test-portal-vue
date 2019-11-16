@@ -3,6 +3,8 @@
     <household-summary></household-summary>
     <date-picker></date-picker>
     <month-report></month-report>
+    <income-list></income-list>
+    <expense-list></expense-list>
   </v-layout>
 </template>
 
@@ -10,11 +12,15 @@
 import HouseholdSummary from '~/components/household/Summary'
 import DatePicker from '~/components/household/DatePicker'
 import MonthReport from '~/components/household/MonthReport'
+import IncomeList from '~/components/household/IncomeList'
+import ExpenseList from '~/components/household/ExpenseList'
 export default {
   components: {
     HouseholdSummary,
     DatePicker,
-    MonthReport
+    MonthReport,
+    IncomeList,
+    ExpenseList
   }
 }
 </script>
