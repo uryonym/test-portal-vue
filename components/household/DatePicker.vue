@@ -1,5 +1,11 @@
 <template>
   <v-flex>
-    <v-date-picker full-width type="month" no-title locale="ja"></v-date-picker>
+    <v-date-picker
+      full-width
+      type="month"
+      no-title
+      locale="ja"
+      class="v-card--outlined"
+    ></v-date-picker>
   </v-flex>
 </template>
