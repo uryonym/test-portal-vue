@@ -9,6 +9,7 @@
 </template>
 
 <script>
+import { mapGetters } from 'vuex'
 import HouseholdSummary from '~/components/household/Summary'
 import DatePicker from '~/components/household/DatePicker'
 import MonthReport from '~/components/household/MonthReport'
