@@ -21,6 +21,15 @@ export default {
     MonthReport,
     IncomeList,
     ExpenseList
+  },
+  computed: {
+    ...mapGetters(['householdData'])
+  },
+  async asyncData({ store }) {
+    if (store.getters.householdData.length) {
+      return
+    }
+    await store.dispatch('getHouseholdData')
   }
 }
 </script>
