@@ -1,5 +1,9 @@
 import cloneDeep from 'lodash.clonedeep'
 
+const dataType = {
+  INCOME_LIST: 'income_list',
+}
+
 export const state = () => ({
   user: null,
   currentMonth: null,
@@ -12,6 +16,14 @@ export const getters = {
   },
   householdData: (state) => state.householdData,
   getCurrentMonth: (state) => state.currentMonth,
+  getIncomeList: (state) => getListData(state, dataType.INCOME_LIST),
+}
+
+function getListData(state, dataType) {
+  const currentMonthData = state.householdData.find(
+    (data) => data.month === state.currentMonth
+  )
+  return !currentMonthData ? null : currentMonthData[dataType]
 }
 
 export const mutations = {
