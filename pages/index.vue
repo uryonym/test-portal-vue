@@ -6,6 +6,7 @@
     <income-list></income-list>
     <expense-list></expense-list>
     <memo></memo>
+    <new-item></new-item>
   </v-layout>
 </template>
 
@@ -17,6 +18,7 @@ import MonthReport from '~/components/household/MonthReport'
 import IncomeList from '~/components/household/IncomeList'
 import ExpenseList from '~/components/household/ExpenseList'
 import Memo from '~/components/household/Memo'
+import NewItem from '~/components/household/NewItem'
 export default {
   components: {
     HouseholdSummary,
@@ -25,6 +27,7 @@ export default {
     IncomeList,
     ExpenseList,
     Memo,
+    NewItem
   },
   computed: {
     ...mapGetters(['householdData'])
@@ -38,4 +41,8 @@ export default {
 }
 </script>
 
-<style></style>
+<style>
+body {
+  margin-bottom: 50px;
+}
+</style>
