@@ -3,6 +3,7 @@ import cloneDeep from 'lodash.clonedeep'
 const dataType = {
   INCOME_LIST: 'income_list',
   EXPENSE_LIST: 'expense_list',
+  MEMO: 'memo'
 }
 
 export const state = () => ({
@@ -19,6 +20,7 @@ export const getters = {
   getCurrentMonth: (state) => state.currentMonth,
   getIncomeList: (state) => getListData(state, dataType.INCOME_LIST),
   getExpenseList: (state) => getListData(state, dataType.EXPENSE_LIST),
+  getMemoData: (state) => getListData(state, dataType.MEMO)
 }
 
 function getListData(state, dataType) {

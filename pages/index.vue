@@ -5,6 +5,7 @@
     <month-report></month-report>
     <income-list></income-list>
     <expense-list></expense-list>
+    <memo></memo>
   </v-layout>
 </template>
 
@@ -15,13 +16,15 @@ import DatePicker from '~/components/household/DatePicker'
 import MonthReport from '~/components/household/MonthReport'
 import IncomeList from '~/components/household/IncomeList'
 import ExpenseList from '~/components/household/ExpenseList'
+import Memo from '~/components/household/Memo'
 export default {
   components: {
     HouseholdSummary,
     DatePicker,
     MonthReport,
     IncomeList,
-    ExpenseList
+    ExpenseList,
+    Memo,
   },
   computed: {
     ...mapGetters(['householdData'])
