@@ -5,24 +5,44 @@
     <month-report></month-report>
     <income-list></income-list>
     <expense-list></expense-list>
+    <memo></memo>
+    <new-item></new-item>
   </v-layout>
 </template>
 
 <script>
+import { mapGetters } from 'vuex'
 import HouseholdSummary from '~/components/household/Summary'
 import DatePicker from '~/components/household/DatePicker'
 import MonthReport from '~/components/household/MonthReport'
 import IncomeList from '~/components/household/IncomeList'
 import ExpenseList from '~/components/household/ExpenseList'
+import Memo from '~/components/household/Memo'
+import NewItem from '~/components/household/NewItem'
 export default {
   components: {
     HouseholdSummary,
     DatePicker,
     MonthReport,
     IncomeList,
-    ExpenseList
+    ExpenseList,
+    Memo,
+    NewItem
+  },
+  computed: {
+    ...mapGetters(['householdData'])
+  },
+  async asyncData({ store }) {
+    if (store.getters.householdData.length) {
+      return
+    }
+    await store.dispatch('getHouseholdData')
   }
 }
 </script>
 
-<style></style>
+<style>
+body {
+  margin-bottom: 50px;
+}
+</style>
