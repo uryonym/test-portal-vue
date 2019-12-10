@@ -10,7 +10,7 @@
         新規作成
       </v-card-title>
       <v-card-text>
-        <v-radio-group row>
+        <v-radio-group v-model="inputBalance" row>
           <v-radio label="支出" value="expense"></v-radio>
           <v-radio label="収入" value="income"></v-radio>
         </v-radio-group>
@@ -23,20 +23,30 @@
         >
           <template v-slot:activator="{ on }">
             <v-text-field
-              v-model="date"
+              v-model="inputDate"
               v-on="on"
               label="日付を選択"
               readonly
             ></v-text-field>
           </template>
           <v-date-picker
-            v-model="date"
+            v-model="inputDate"
             @input="menu = false"
             no-title
+            full-width
           ></v-date-picker>
         </v-menu>
-        <v-text-field label="項目"></v-text-field>
-        <v-text-field label="金額"></v-text-field>
+        <v-text-field v-model="inputTitle" label="項目"></v-text-field>
+        <v-text-field
+          v-model="inputAmount"
+          @blur="setBlur"
+          @keyup="setKeyup"
+          @keydown="setKeydown"
+          @keypress="setKeypress"
+          label="金額"
+          prefix="¥"
+          type="tel"
+        ></v-text-field>
       </v-card-text>
       <v-card-actions>
         <v-spacer></v-spacer>
@@ -54,8 +64,40 @@ export default {
   data() {
     return {
       dialog: false,
-      date: new Date().toISOString().substr(0, 10),
-      menu: false
+      menu: false,
+      inputBalance: 'expense',
+      inputDate: new Date().toISOString().substr(0, 10),
+      inputTitle: '',
+      inputAmount: '',
+      isIme: false
+    }
+  },
+  methods: {
+    addFigure(value) {
+      const originValue = value
+      value = this.removeFigure(value)
+      value = parseInt(value, 10)
+      if (isNaN(value)) return originValue
+      return value.toString().replace(/(¥d)(?=(¥d{3})+$)/g, '$1,')
+    },
+    removeFigure(value) {
+      if (value.length === 0) return ''
+      const num = Number(value.toString().replace(/,/g, ''))
+      if (isNaN(num)) return value
+      return num
+    },
+    setBlur() {
+      this.inputAmount = this.addFigure(this.inputAmount)
+    },
+    setKeyup() {
+      if (this.isIme === false)
+        this.inputAmount = this.addFigure(this.inputAmount)
+    },
+    setKeydown() {
+      this.isIme = true
+    },
+    setKeypress() {
+      this.isIme = false
     }
   }
 }
