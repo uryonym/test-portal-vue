@@ -39,10 +39,10 @@
         <v-text-field v-model="inputTitle" label="項目"></v-text-field>
         <v-text-field
           v-model="inputAmount"
-          @blur="setBlur"
-          @keyup="setKeyup"
-          @keydown="setKeydown"
-          @keypress="setKeypress"
+          @blur="setBlur()"
+          @keyup.native="setKeyup()"
+          @keydown.native="setKeydown()"
+          @keypress.native="setKeypress()"
           label="金額"
           prefix="¥"
           type="tel"
@@ -78,7 +78,7 @@ export default {
       value = this.removeFigure(value)
       value = parseInt(value, 10)
       if (isNaN(value)) return originValue
-      return value.toString().replace(/(¥d)(?=(¥d{3})+$)/g, '$1,')
+      return value.toString().replace(/(\d)(?=(\d{3})+$)/g, '$1,')
     },
     removeFigure(value) {
       if (value.length === 0) return ''
