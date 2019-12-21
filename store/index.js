@@ -1,4 +1,4 @@
-import cloneDeep from 'lodash.clonedeep'
+import cloneDeep from 'lodash/cloneDeep'
 
 const dataType = {
   INCOME_LIST: 'income_list',
