@@ -1,5 +1,8 @@
 <template>
   <v-layout row wrap>
+    <v-flex xs12>
+      <h2 class="title text-center">{{ pageTitle }}</h2>
+    </v-flex>
     <household-summary></household-summary>
     <date-picker></date-picker>
     <month-report></month-report>
@@ -30,19 +33,25 @@ export default {
     NewItem
   },
   computed: {
-    ...mapGetters(['householdData'])
+    ...mapGetters(['householdData']),
+    pageTitle() {
+      const pickDate = this.$store.getters.getCurrentMonth
+      const year = pickDate.substr(0, 4)
+      const month = pickDate.substr(-2)
+      return year + '年' + month + '月' + ' 収支概要'
+    }
   },
   async asyncData({ store }) {
     if (store.getters.householdData.length) {
       return
     }
     await store.dispatch('getHouseholdData')
+  },
+  created() {
+    const today = new Date()
+    const currentMonth =
+      today.getFullYear() + '-' + ('00' + (today.getMonth() + 1)).slice(-2)
+    this.$store.commit('setCurrentMonth', currentMonth)
   }
 }
 </script>
-
-<style>
-body {
-  margin-bottom: 50px;
-}
-</style>

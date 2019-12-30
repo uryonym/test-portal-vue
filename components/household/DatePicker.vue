@@ -23,12 +23,6 @@ export default {
         this.$store.commit('setCurrentMonth', value)
       }
     }
-  },
-  created() {
-    const today = new Date()
-    const currentMonth =
-      today.getFullYear() + '-' + ('00' + (today.getMonth() + 1)).slice(-2)
-    this.$store.commit('setCurrentMonth', currentMonth)
   }
 }
 </script>
